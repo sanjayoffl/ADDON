@@ -1,215 +1,240 @@
-String declaration:
-1.String str1="Hello";//Using string literal//stores in string pool//allow duplicate//faster
-2.String str2=new String("hi");//use new keyword//stores in heep memory//prevent duplication//slower
-(s1.equals(s2))
-import java.util.Scanner;
+CHARACTER:
+
+import java.util.*;
 class Main {
     public static void main(String[] args) {
-        String str1="Hi";
-        String str2=new String("Hi");
-        System.out.println(str1==str2);
-        System.out.println(str1.equals(str2));
+       Scanner s=new Scanner(System.in);
+       System.out.println("Enter the char:");
+       char ch=s.nextLine().charAt(0);
+       System.out.println(ch);
+       
+        
     }
 }
-Output:
-false
-true
-import java.util.Scanner;
+
+OUTPUT:
+Enter the char:
+abh
+a
+
+OOPS CONCEPT:
+CLASS:
+blueprint of java
+contains states and behavior
+state-data member(variable)
+behavior-member function
+
+OBJECT:
+real world entity-have its own states and behavior
+
+Java can have 2 classes-for logic and execution part
+
+static int a=10;
+if static - don't want to use objects instead of use classname.static member
+
 class Main {
     public static void main(String[] args) {
-        Scanner a=new Scanner(System.in);
-        System.out.println("Enter first name:");
-        String str1=a.nextLine();
-        System.out.println("Enter second name:");
-        String str2=new String(a.nextLine());
-        System.out.println("Result is "+(str1.equals(str2)));
+       //non-static
+       Objectoriented ref=new Objectoriented();
+       System.out.println(ref.name);
+       System.out.println(ref.Rollno);
+       //static
+       System.out.println(Objectoriented.a);
+       Objectoriented.Display();
     }
 }
-Output;
-Enter first name:
-sanju
-Enter second name:
-sanju
-Result is true
-import java.util.Scanner;
-class Main {
-    public static void main(String[] args) {
-        Scanner a=new Scanner(System.in);
-        System.out.println("Enter first name:");
-        String teach=a.nextLine();
-        System.out.println("Enter second name:");
-        String stu1=a.nextLine();
-         System.out.println("Enter third name:");
-        String stu2=new String(a.nextLine());
-        System.out.println("Result is "+(teach.equals(stu1)&&teach.equals(stu2)));
+class Objectoriented{
+    //non-static
+    String name="Nikash";
+    String Rollno="2326jb25";
+    
+    static int a=10;
+    public static void Display(){
     }
 }
-Output:
-Enter first name:
-ss
-Enter second name:
-ss
-Enter third name:
-bb
-Result is false
-import java.util.Scanner;
-class Main {
-    public static void main(String[] args) {
-        String s1="sanjay";
-        System.out.println(s1.length());
-        for(int i=0;i<s1.length();i++){
-            System.out.println(i);
+
+OUTPUT:
+Nikash
+2326jb25
+10 
+
+CONSTRUCTORS:
+1)Special method or member function must have
+same name as that of class name
+2)It does not allows access modifiers and also return type
+
+class Cons{
+    public static void main(String[] args){
+        Sample ref=new Sample();
+    }
+}
+class Sample{
+    //default constructor
+    Sample(){
+        System.out.println("Default Constructor");
+    }
+}
+
+OUTPUT:
+Default Constructor
+
+class Cons{
+    public static void main(String[] args){
+        Sample ref=new Sample("BMW"," M7");
+        Sample ref1=new Sample("Audi"," Q3");
+        Sample ref2=new Sample("Ford"," Mustang");
+        System.out.print(ref.carname);
+        System.out.println(ref.carmodel);
+        System.out.print(ref1.carname);
+        System.out.println(ref1.carmodel);
+        System.out.print(ref2.carname);
+        System.out.print(ref2.carmodel);
+    }
+}
+class Sample{
+    String carname;
+    String carmodel;
+
+    //default constructor
+    Sample(String carname,String carmodel){
+        this.carname=carname;
+        this.carmodel=carmodel;
+        System.out.println("Default Constructor");
+    }
+}
+
+OUTPUT:
+
+Default Constructor
+Default Constructor
+Default Constructor
+BMW M7
+Audi Q3
+Ford Mustang
+
+ENCAPSULATION:
+
+class Cons{
+    public static void main(String[] args){
+      Account ac=new Account("Nikash",3000);
+        System.out.println(ac.getAccholder());
+        System.out.println(ac.getBalance());
+    }
+}
+class Account{
+    private String Accholder;
+    private int Balance;
+
+    //default constructor
+    Account(String Accholder,int Balance){
+       this.Accholder=Accholder;
+       this.Balance=Balance;
+    }
+    public String getAccholder(){
+        return Accholder;
+    }
+    public int getBalance(){
+        return Balance;
+    }
+}
+
+OUTPUT:
+Nikash
+3000
+
+//updation
+class Cons{
+    public static void main(String[] args){
+      Account ac=new Account("Nikash",3000);
+        System.out.println(ac.getAccholder());
+        System.out.println(ac.getBalance());
+        ac.setAccholder("Abhinav");
+        System.out.println(ac.getAccholder());
+    }
+}
+class Account{
+    private String Accholder;
+    private int Balance;
+
+    //default constructor
+    Account(String Accholder,int Balance){
+       this.Accholder=Accholder;
+       this.Balance=Balance;
+    }
+    public String getAccholder(){
+        return Accholder;
+    }
+    public int getBalance(){
+        return Balance;
+    }
+    public void setAccholder(String Accholder){
+        this.Accholder=Accholder;
+    }
+}
+
+OUTPUT:
+Nikash
+3000
+Abhinav
+
+with balance and withdraw:
+class Cons{
+    public static void main(String[] args){
+      Account ac=new Account("Nikash",3000);
+        System.out.println("THE ACCOUNT HOLDER NAME:"+ac.getAccholder());
+        System.out.println("THE BALANCE IS:"+ac.getBalance());
+        ac.setAccholder("Abhinav");
+        ac.setBalance(3000);
+        ac.setwithdraw(1000);
+        System.out.println("CURRENT BALANCE IS:"+ac.getBalance());
+    }
+}
+class Account{
+    private String Accholder;
+    private int Balance;
+    private int withdraw;
+
+    //default constructor
+    Account(String Accholder,int Balance){
+       this.Accholder=Accholder;
+       this.Balance=Balance;
+    }
+    public String getAccholder(){
+        return Accholder;
+    }
+    public int getBalance(){
+        return Balance;
+    }
+    public int getwithdraw(){
+        return withdraw;
+    }
+    
+    public void setAccholder(String Accholder){
+        this.Accholder=Accholder;
+        System.out.println( "UPDATED Name:"+Accholder);
+    }
+    public void setBalance(int Amount){
+        if(Balance>0){
+            Balance+=Amount;
+            System.out.println( "THE CREDITED AMOUNT IS:"+Amount);
+            System.out.println( "THE BALANCE AMOUNT IS:"+Balance);
         }
-}
-}
-Output:
-6
-0
-1
-2
-3
-4
-5
-import java.util.Scanner;
-class Main {
-    public static void main(String[] args) {
-        String s1="sanjay";
-        System.out.println(s1.length());
-        for(int i=1;i<s1.length();i++){
-            System.out.println(s1.charAt(i));
+        else{
+           System.out.println("no balance");
         }
-}
-}
-Output:
-6
-a
-n
-j
-a
-y
-import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
-        String str="Java Programming";
-        System.out.println(""+str.substring(5));
-}
-}
-Output:
-Programming
-import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
-        String s1="Java Programming";
-        for(int i=s1.length()-1;i>=0;i--){
-            System.out.println(s1.charAt(i));
-}
-}
-}
-Output:
-g
-n
-i
-m
-m
-a
-r
-g
-o
-r
-P
- 
-a
-v
-a
-J
-public class Main {
-    public static void main(String[] args) {
-        String str="Java programming";
-        System.out.println("Index of 'prog':"+str.indexOf("Prog"));
-        System.out.println("Index of 'z':"+str.indexOf('z'));
+       
     }
-}
-Output:
-Index of 'prog':-1
-Index of 'z':-1
-public class Main {
-    public static void main(String[] args) {
-        String str="Java programming";
-        System.out.println(str.replace('a','x'));
+    public void setwithdraw(int withdraw){
+        Balance-=withdraw;
+        System.out.println("THE WITHDRAW AMOUNT is:"+withdraw);
+
 }
 }
-Output:
-Jxvx progrxmming
-public class Main {
-    public static void main(String[] args) {
-        String s1="Java";
-        String s2="java";
-        System.out.println("case sensitive"+s1.equals(s2));
-        System.out.println("case insensitive"+s1.equalsIgnoreCase(s2));
-}
-}
-Output:
-case sensitivefalse
-case insensitivetrue
-public class Main {
-    public static void main(String[] args) {
-        String s=" Java Program";
-        System.out.println("before:+["+s+"]");
-        System.out.println("after:+["+s.trim()+"]");
-}
-}
-Output:
-before:+[ Java Program]
-after:+[Java Program]
-public class Main {
-    public static void main(String[] args) {
-        String s1=new String("Java Program");
-        String s2="Java Program";
-        String s3=s1.intern();
-        System.out.println(s1==s2);
-        System.out.println(s2==s3);
-}
-}
-Output:
-false
-true
-public class Main {
-    public static void main(String[] args) {
-        String s1=new String("Java Program");
-        System.out.println("Contains'java':"+s1.contains("Java"));
-        System.out.println("contains'python':"+s1.contains("Python"));
-}
-}
-Output:
-Contains'java':true
-contains'python':false
-def:
-*Wrapper classes in java provide a way to use primitive data types(int,double,char,etc.)as objects
-*Each primitive has corresponding
-wrapperclass-primitive type:
-short-short
-integer-int
-long-long
-float-float
-byte-byte
-double-double
-character-char
-boolean-boolean
-two types:
-1)autoboxing
-2)unboxing
-public class Main {
-    public static void main(String[] args) {
-        String str="123,456,789";
-        String[] arr=str.split(",");
-        int max=0;
-        for(int i=0;i<arr.length;i++){
-            if(Integer.parseInt(arr[i])>max){
-                max=Integer.parseInt(arr[i]);
-            }
-        }
-        System.out.println("max:"+max);
-    }
-}
-Output:
-max:789
+output:
+THE ACCOUNT HOLDER NAME:Nikash
+THE BALANCE IS:3000
+UPDATED Name:Abhinav
+THE CREDITED AMOUNT IS:3000
+THE BALANCE AMOUNT IS:6000
+THE WITHDRAW AMOUNT is:1000
+CURRENT BALANCE IS:5000
