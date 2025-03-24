@@ -1,0 +1,127 @@
+Arraylist using scanner:
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ArrayListExample {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Object> Details = new ArrayList<>();
+
+        System.out.print("Enter name: ");
+        Details.add(sc.nextLine());
+
+        System.out.print("Enter salary: ");
+        Details.add(sc.nextInt());
+        sc.nextLine(); // Consume newline
+
+        System.out.print("Enter job title: ");
+        Details.add(sc.nextLine());
+
+        System.out.println("Given array list: " + Details);
+        System.out.println("Size of given array list: " + Details.size());
+        System.out.println("Remove element from given array list: " + Details.remove(1));
+        System.out.println("Given array list after removal: " + Details.get(1));
+
+        sc.close();
+    }
+}
+
+
+Output :
+Enter name: Abhinav
+Enter salary: 100001
+Enter job title: java technician
+Given array list: [Abhinav, 100001, java technician]
+Size of given array list: 3
+Remove element from given array list: 100001
+Given array list after removal: java technician
+
+
+
+
+log n-complexity for linked list
+
+
+
+Hash Map:
+ . HashMap stores data in (key, value) pairs.
+the name of the key is also referd as object .
+
+Sample Program:
+import java.util.Scanner;
+
+public class RemoveVowels {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a word: ");
+        String word = sc.nextLine();
+        
+       
+        String result = word.replaceAll("[AEIOUaeiou]", "");
+        
+        System.out.println("Word after removing vowels: " + result);
+        sc.close();
+    }
+}
+
+Output:
+Enter a word: abhinav
+Word after removing vowels: bhnv
+
+same sample program using arraylist
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class RemoveVowels {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Character> result = new ArrayList<>();
+        System.out.print("Enter a word: ");
+        String word = sc.nextLine();
+        for (char ch : word.toCharArray()) {
+            if (!"AEIOUaeiou".contains(String.valueOf(ch))) {
+                result.add(ch);
+            }
+        }
+        StringBuffer output = new StringBuffer();
+        for (char ch : result) {
+            output.append(ch);
+        }
+        System.out.println("Word after removing vowels: " + output);
+        
+    }
+}
+
+Exception Handling in Java:
+throw :
+    custom error.
+
+import java.util.Scanner;
+class Idontlikethename extends Exception{
+    public Idontlikethename(String message)
+    {
+        super(message);
+    }
+}
+class Main{
+public static void main(String[] args){
+Scanner in= new Scanner(System.in);
+try{
+   String str= in.nextLine();
+  if (str.equals("hello"))
+ {
+ throw new Idontlikethename("change name");
+}
+}
+catch (Exception e)
+{
+System.out.println("NAMMA THAA");
+}
+}
+}
+
+output:
+hello
+NAMMA THAA
