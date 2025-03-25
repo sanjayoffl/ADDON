@@ -1,0 +1,30 @@
+class Main {
+    public static void main(String[] args) {
+        int a=10;
+        int b=13;
+        int c=4;
+       int d;
+       d= c * a++ + ++b - --a + b - a++ +a++ + b-- + --b - a+b -a;
+        System.out.println(d);
+    }
+}
+output:
+73
+
+class Main {
+    public static void main(String[] args) {
+        int i;
+        for(i=0;i<5;i++){
+            System.out.println(i);
+        }
+        System.out.println(i);
+    }
+}
+
+output:
+0
+1
+2
+3
+4
+5
