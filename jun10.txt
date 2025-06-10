@@ -1,0 +1,147 @@
+java(10/06/25):
+
+import java.util.Scanner;
+class BankAccount {
+    double balance = 0;
+    void deposit(double amount){
+        balance+=amount;
+        System.out.println("DEPOSITED IN YOUR ACCOUNT:"+amount);
+    }
+    void withdraw(double amount){
+        if (amount <= balance){
+            balance -= amount;
+            System.out.println("WITHDRAWN FROM YOUR ACCOUNT:"+amount);
+        }else {
+            System.out.println("LESS THAN YOUR ENTER AMOUNT!");
+        }
+    }
+    void showBalance(){
+        System.out.println("AVAILABLE BALANCE:"+balance);
+    }
+}
+class Main {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        BankAccount account = new BankAccount();
+        System.out.println("YES BANK");
+        System.out.print("ENTER YOUR ACCOUNT NUMBER:");
+        int in=sc.nextInt();
+        System.out.print("ENTER DEPOSIT AMOUNT:");
+        double dep = sc.nextDouble();
+        account.deposit(dep);
+        System.out.print("ENTER WITHDRAW AMOUNT:");
+        double wd = sc.nextDouble();
+        account.withdraw(wd);
+        account.showBalance();
+    }
+}
+
+YES BANK
+ENTER YOUR ACCOUNT NUMBER:25469811
+ENTER DEPOSIT AMOUNT:2000
+DEPOSITED IN YOUR ACCOUNT:2000.0
+ENTER WITHDRAW AMOUNT:100
+WITHDRAWN FROM YOUR ACCOUNT:100.0
+AVAILABLE BALANCE:1900.0
+
+=== Code Execution Successful ===
+
+package oops;
+
+import java.util.Date;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+public class OOPSClass {
+	public static void main(String[] args) {
+		EncapsulationClass user=new EncapsulationClass();
+		Scanner in= new Scanner(System.in);
+		System.out.print("Enter your email:");
+		user.setEmail(in.next().toLowerCase());
+		System.out.println(user.getEmail());
+		System.out.print("Enter your username:");
+		user.setUser(in.next());
+		System.out.print("Enter your mobile:");
+		user.setMobile(in.nextLong());
+		System.out.print("Enter your DOB(eg.YYYY/MM/DD):");
+		Date dob=new Date(in.next());
+		user.setAge(dob);
+		System.out.print("Enter your gender:");
+		user.setGender(in.next().charAt(0));
+		System.out.print("Enter your graduation:");
+		user.setGraduate(in.nextBoolean());
+		in.close();
+		
+	}
+}
+
+package oops;
+import java.util.Date;
+public class EncapsulationClass {
+	private String email;
+	private String username;
+	private long mobile;
+	private Date age;
+	private char gender;
+	private boolean graduate;
+	
+	public void setEmail(String email){
+		this.email=email;
+	}
+	public String getEmail(){
+		return email;
+	}
+	public void setUser(String username){
+		this.username=username;
+	}
+	public String getUser(){
+		return username;
+	}
+	public void setMobile(long mobile){
+		this.mobile=mobile;
+	}
+	public long getMobile(){
+		return mobile;
+	}
+	public void setAge(Date age){
+		this.age=age;
+	}
+	public Date getAge(){
+		return age;
+	}
+	public void setGender(char gender){
+		this.gender=gender;
+	}
+	public long getGender(){
+		return gender;
+	}
+	public void setGraduate(boolean graduate){
+		this.graduate=graduate;
+	}
+	public boolean getGraduate(){
+		return graduate;
+	}
+}
+
+package oops;
+
+class Parent{
+	String haircolor="Black";
+	void behaviour() {
+		System.out.println("Attitude");
+	}
+}
+class Child extends Parent{
+	String haircolor="Brown";
+	void behaviour() {
+		System.out.println("Less Attitude");
+	}
+}
+public class InheritanceClass {
+	public static void main(String[] args) {
+		Parent obj=new Child();
+		obj.behaviour();
+	}
+}
+
+Output:
+Less Attitude
