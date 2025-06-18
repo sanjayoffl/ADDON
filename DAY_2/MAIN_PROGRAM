@@ -1,1 +1,39 @@
-STRING ANALYZER(WORD COUNT,CHARACTER COUNT,REVERSE AND LONGEST WORD)
+STRING ANALYZER(WORD COUNT,CHARACTER COUNT,REVERSE AND LONGEST WORD) ;
+
+CODE :
+
+import java.util.Scanner;
+
+public class StringAnalyzer {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string:");
+        String input = sc.nextLine();
+        String[] words = input.trim().split("\\s+");
+        int wordCount = words.length;
+        int charCount = input.replace(" ", "").length();
+        String reversed = new StringBuilder(input).reverse().toString();
+        String longestWord = "";
+        for (String word : words) {
+            if (word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        System.out.println("Word Count: " + wordCount);
+        System.out.println("Character Count" + charCount);
+        System.out.println("Reversed String: " + reversed);
+        System.out.println("Longest Word: " + longestWord);
+        sc.close();
+    }
+}
+
+OUTPUT :
+
+Enter a string:
+java is a oject oriented programming language
+Word Count: 7
+Character Count39
+Reversed String: egaugnal gnimmargorp detneiro tcejo a si avaj
+Longest Word: programming
+
+=== Code Execution Successful ===
