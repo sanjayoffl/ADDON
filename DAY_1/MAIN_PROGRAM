@@ -1,1 +1,70 @@
-MENU-DRIVEN CALCULATOR USING SWITCH AND METHODS(ADD,SUBTRACT,MULTIPLY,DIVIDE)
+MENU-DRIVEN CALCULATOR USING SWITCH AND METHODS(ADD,SUBTRACT,MULTIPLY,DIVIDE) :
+
+CODE :
+
+import java.util.Scanner;
+
+public class Calculator {
+    public static double add(double a, double b) {
+        return a + b;
+    }
+    public static double subtract(double a, double b) {
+        return a - b;
+    }
+    public static double multiply(double a, double b) {
+        return a * b;
+    }
+    public static double divide(double a, double b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            System.out.println("Cannot divide by zero.");
+            return 0;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("ENTER FIRST VALUE: ");
+        double num1 = sc.nextDouble();
+        System.out.print("ENTER SECOND VALUE: ");
+        double num2 = sc.nextDouble();
+        System.out.println("CHOOSE ONE ARITHMATIC OPERATION:");
+        System.out.println("1.ADDITION");
+        System.out.println("2.SUBTRACTION");
+        System.out.println("3.MULTIPLICATION");
+        System.out.println("4.DIVISION");
+        System.out.print("ENTER YOUR CHOICE NO: ");
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.println("RESULT= " + add(num1, num2));
+                break;
+            case 2:
+                System.out.println("RESULT= " + subtract(num1, num2));
+                break;
+            case 3:
+                System.out.println("RESULT= " + multiply(num1, num2));
+                break;
+            case 4:
+                System.out.println("RESULT= " + divide(num1, num2));
+                break;
+            default:
+                System.out.println("INVALID CHOICE");
+        }
+        sc.close();
+    }
+}
+
+OUTPUT :
+
+ENTER FIRST VALUE: 2
+ENTER SECOND VALUE: 4
+CHOOSE ONE ARITHMATIC OPERATION:
+1.ADDITION
+2.SUBTRACTION
+3.MULTIPLICATION
+4.DIVISION
+ENTER YOUR CHOICE NO: 3
+RESULT= 8.0
+
+=== Code Execution Successful ===
