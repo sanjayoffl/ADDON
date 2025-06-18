@@ -1,29 +1,3 @@
 CREATE STUDENT AND COURSE TABLES
 CODE:
-mysql> select * from students;
-+-------+--------+--------+
-| name  | rollno | dept   |
-+-------+--------+--------+
-| sri   |      1 | bsc it |
-| ram   |      2 | bsc cs |
-| arun  |      3 | bsc ct |
-| hari  |      4 | bca    |
-| priya |      5 | bcom   |
-+-------+--------+--------+
-5 rows in set (0.00 sec)
-mysql> create table courses(
-    -> deptname varchar(30),
-    -> deptid int,
-    -> course_fee int);
-Query OK, 0 rows affected (0.06 sec)
-mysql> select * from courses;
-+----------+--------+------------+
-| deptname | deptid | course_fee |
-+----------+--------+------------+
-| bsc it   |   1001 |      25000 |
-| bsc cs   |   1002 |      30000 |
-| bsc ct   |   1003 |      35000 |
-| bca      |   1004 |      36000 |
-| bcom     |   1005 |      32000 |
-+----------+--------+------------+
-5 rows in set (0.00 sec)
+
