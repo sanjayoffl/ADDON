@@ -1,1 +1,52 @@
-WRITE STRINGS TO A FILE LINE BY LINE
+WRITE STRINGS TO A FILE LINE BY LINE :
+
+CODE :
+
+package exceptionhandling;
+import java.io.FileWriter;
+
+import java.io.IOException;
+public class FileWriterClass  {
+
+    public static void main(String[] args) {
+
+        try {
+
+            FileWriter writer = new FileWriter("C:\\Users\\casstudent\\eclipse-workspace\\addon\\src\\exceptionhandling\\sanjay.txt");
+
+
+
+            writer.write("Hi \n");
+
+            writer.write("Hello\n");
+
+            writer.write("Welcome\n");
+
+
+
+            writer.close();
+
+            System.out.println("File written successfully.");
+
+        } catch (IOException e) {
+
+            System.out.println("Error writing to file.");
+
+        }
+
+    }
+
+}
+
+OUTPUT :
+
+File written successfully.
+
+sanjay.txt
+
+Hi 
+Hello
+Welcome
+
+
+
