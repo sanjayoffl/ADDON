@@ -1,0 +1,5 @@
+STUDENT COURSE ENROLLMENT SYSTEM:
+*  Use an ArrayList for students
+*  Use an HashMap to assign multiple course per student
+*  Include functionality to add,remove and display and their enrolled courses
+*  Use iterators to loop through data
