@@ -6,7 +6,7 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        System.out.println("Enter the string:");
+        System.out.println("ENTER THE STRING:");
         String name=in.nextLine();
         int n=name.length();
         int count=0;
@@ -25,16 +25,17 @@ class Main {
         }
         int total=count+concount;
         System.out.println(name);
-        System.out.println("vowels count:"+count);
-        System.out.println("consonent count:"+concount);
-        System.out.println("total words count:"+total);
+        System.out.println("VOWELS COUNT:"+count);
+        System.out.println("CONSONENT COUNT:"+concount);
+        System.out.println("TOTAL NO OF WORDS:"+total);
         
 }
 }
 
+
 OUTPUT :
 
-Enter the string:
+ENTER THE STRING:
 sanjay
 s
 a
@@ -43,8 +44,6 @@ j
 a
 y
 sanjay
-vowels count:2
-consonent count:4
-total words count:6
-
-=== Code Execution Successful ===
+VOWELS COUNT:2
+CONSONENT COUNT:4
+TOTAL NO OF WORDS:6
