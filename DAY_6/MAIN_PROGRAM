@@ -1,0 +1,5 @@
+TICKET BOOKING SIMULATION:
+*  Multiple users (threads) are trying to book tickets
+*  Use a synchronized method/block to avoid race conditions
+*  Include sleep() to simulate delays
+*  Display booking status and remaining seats after each booking
