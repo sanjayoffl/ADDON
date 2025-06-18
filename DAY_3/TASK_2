@@ -1,1 +1,63 @@
-PERSON->EMPLOYEE CLASS WITH SALARY CALCULATION
+PERSON->EMPLOYEE CLASS WITH SALARY CALCULATION :
+
+CODE :
+
+import java.util.Scanner;
+class Person {
+    String name;
+    int age;
+    void getDetails(Scanner sc)
+    {
+        System.out.print("Enter name: ");
+        name = sc.nextLine();
+        System.out.print("Enter age: ");
+        age = sc.nextInt();
+    }
+    void showDetails()
+    {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+class Employee extends Person {
+    double basicSalary;
+    double hra;
+    double da;
+    void setSalary(Scanner sc) {
+        System.out.print("Enter basic salary: ");
+        basicSalary = sc.nextDouble();
+        hra = 0.2 * basicSalary;
+        da = 0.1 * basicSalary;
+    }
+    double calculateSalary() {
+        return basicSalary + hra + da;
+    }
+    void displaySalary() {
+        System.out.println("Total Salary: ₹" + calculateSalary());
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Employee emp = new Employee();
+        emp.getDetails(sc);
+        emp.setSalary(sc);
+        System.out.println("\nEmployee Details:");
+        emp.showDetails();
+        emp.displaySalary();
+        sc.close();
+    }
+}
+
+OUTPUT:
+
+Enter name: sanjay
+Enter age: 44
+Enter basic salary: 10000
+
+Employee Details:
+Name: sanjay
+Age: 44
+Total Salary: ?13000.0
+
+=== Code Execution Successful ===
