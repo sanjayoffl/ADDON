@@ -1,1 +1,54 @@
-INSERT 5 RECORDS IN EACH
+INSERT 5 RECORDS IN EACH :
+
+mysql> insert into student values(1,'ram','bsc it');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into student values(2,'sai','bsc cs');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(3,'sri','bsc it');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student values(4,'hari','bca');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into student values(5,'arun','bcom');
+Query OK, 1 row affected (0.04 sec)
+mysql> select * from student;
++--------+------+------------+
+| rollno | name | department |
++--------+------+------------+
+|      1 | ram  | bsc it     |
+|      2 | sai  | bsc cs     |
+|      3 | sri  | bsc it     |
+|      4 | hari | bca        |
+|      5 | arun | bcom       |
++--------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into course values('bsc it',1001,35000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into course values('bsc cs',1002,36000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into course values('bsc it',1001,35000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into course values('bca',1003,34000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into course values('bcom',1004,40000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from course;
++-----------+---------+------------+
+| dept_name | dept_id | course_fee |
++-----------+---------+------------+
+| bsc it    |    1001 |      35000 |
+| bsc cs    |    1002 |      36000 |
+| bsc it    |    1001 |      35000 |
+| bca       |    1003 |      34000 |
+| bcom      |    1004 |      40000 |
++-----------+---------+------------+
+5 rows in set (0.00 sec)
