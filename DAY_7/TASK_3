@@ -1,1 +1,29 @@
-UPDATE A COURSE FEE
+UPDATE A COURSE FEE :
+
+mysql> update course set course_fee='40000' where dept_name='bsc it';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update course set course_fee='42000' where dept_name='bsc cs';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update course set course_fee='44000' where dept_name='bca';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update course set course_fee='45000' where dept_name='bcom';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from course;
++-----------+---------+------------+
+| dept_name | dept_id | course_fee |
++-----------+---------+------------+
+| bsc it    |    1001 |      40000 |
+| bsc cs    |    1002 |      42000 |
+| bsc it    |    1001 |      40000 |
+| bca       |    1003 |      44000 |
+| bcom      |    1004 |      45000 |
++-----------+---------+------------+
+5 rows in set (0.00 sec)
