@@ -1,3 +1,33 @@
-CREATE STUDENT AND COURSE TABLES
-CODE :
+CREATE STUDENT AND COURSE TABLES :
 
+mysql> create table student(
+    -> rollno int,
+    -> name varchar(30),
+    -> department varchar(30));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| rollno     | int         | YES  |     | NULL    |       |
+| name       | varchar(30) | YES  |     | NULL    |       |
+| department | varchar(30) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> create table course(
+    -> dept_name varchar(30),
+    -> dept_id int,
+    -> course_fee int);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc course;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| dept_name  | varchar(30) | YES  |     | NULL    |       |
+| dept_id    | int         | YES  |     | NULL    |       |
+| course_fee | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
