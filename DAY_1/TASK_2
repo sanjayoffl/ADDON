@@ -1,1 +1,33 @@
-SIMPLE INTEREST CALCULATOR USING IF
+SIMPLE INTEREST CALCULATOR USING IF :
+
+CODE :
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("ENTER PRINCIPAL AMOUNT: ");
+        int principal = sc.nextInt();
+        System.out.print("ENTER RATE OF INTEREST: ");
+        double rate = sc.nextDouble();
+        System.out.print("ENTER TIME IN YEARS: ");
+        double time = sc.nextDouble();
+        if (principal > 0 && rate > 0 && time > 0) {
+            double simpleInterest = (principal * rate * time) / 100;
+            System.out.println("Simple Interest = " + simpleInterest);
+        } else {
+            System.out.println("Invalid");
+        }
+        sc.close();
+    }
+}
+
+OUTPUT :
+
+ENTER PRINCIPAL AMOUNT: 1000
+ENTER RATE OF INTEREST: 5
+ENTER TIME IN YEARS: 2
+Simple Interest = 100.0
+
+=== Code Execution Successful ===
