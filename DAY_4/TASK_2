@@ -1,1 +1,34 @@
-READ FROM A TEXT FILE AND DISPLAY THE CONTENT
+READ FROM A TEXT FILE AND DISPLAY THE CONTENT :
+ 
+CODE :
+
+package exceptionhandling;
+import java.io.FileReader;
+import java.io.IOException;
+public class FileReaderClass  {
+    public static void main(String[] args) {
+        try (FileReader reader = new FileReader("C:\\Users\\casstudent\\eclipse-workspace\\addon\\src\\exceptionhandling\\sanjay.txt"))
+        		{
+            int character;
+
+            // Read character by character
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character);  // convert int to char
+            }
+
+            reader.close(); // always close the reader
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+}
+
+TEXT FILE:
+
+sanjay.txt
+
+sabcd
+
+OUTPUT :
+
+sabcd
