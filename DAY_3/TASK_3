@@ -1,1 +1,35 @@
-DEMONSTRATE OVERLOADING (SUM(INT,INT)) AND SUM (DOUBLE,DOUBLE)
+DEMONSTRATE OVERLOADING (SUM(INT,INT)) AND SUM (DOUBLE,DOUBLE) :
+
+CODE :
+
+import java.io.*;
+class Demo {
+    public int add(int a, int b)
+    {
+        int demo1 = a * b;
+        return demo1;
+    }
+    public double add(double a, double b)
+    {
+        double demo2 = a + b ;
+        return demo2;
+    }
+
+}
+class Main {
+    public static void main(String[] args)
+    {
+        Demo S = new Demo();
+        int demo1 = S.add(2, 2);
+        System.out.println("INTEGER VALUE: " + demo1);
+        double demo2 = S.add(4, 3);
+        System.out.println( "DOUBLE VALUE: " + demo2);
+    }
+}
+
+OUTPUT :
+
+INTEGER VALUE: 4
+DOUBLE VALUE: 12.0
+
+=== Code Execution Successful ===
