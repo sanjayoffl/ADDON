@@ -1,1 +1,50 @@
-COUNT VOWELS AND CONSONANTS IN A STRING
+COUNT VOWELS AND CONSONANTS IN A STRING :
+
+CODE :
+
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        System.out.println("Enter the string:");
+        String name=in.nextLine();
+        int n=name.length();
+        int count=0;
+        int concount=0;
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(name.charAt(i));
+            if((name.charAt(i)=='a'||name.charAt(i)=='e'||name.charAt(i)=='i'||name.charAt(i)=='o'||name.charAt(i)=='u')){
+                count++;
+            }
+            else if(name.charAt(i)>='a' && name.charAt(i)<='z'){
+                concount++;
+            
+            }
+            
+        }
+        int total=count+concount;
+        System.out.println(name);
+        System.out.println("vowels count:"+count);
+        System.out.println("consonent count:"+concount);
+        System.out.println("total words count:"+total);
+        
+}
+}
+
+OUTPUT :
+
+Enter the string:
+sanjay
+s
+a
+n
+j
+a
+y
+sanjay
+vowels count:2
+consonent count:4
+total words count:6
+
+=== Code Execution Successful ===
