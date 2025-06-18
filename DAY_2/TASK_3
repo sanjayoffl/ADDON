@@ -1,1 +1,31 @@
-ACCEPT SENTENCES,SPLIT INTO WORDS
+ACCEPT SENTENCES,SPLIT INTO WORDS :
+
+CODE :
+
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine();
+        String[] words = sentence.split(" ");
+        System.out.println("The words in the sentence are:");
+        for (String word : words) {
+            System.out.println(word);
+        }
+        sc.close();
+    }
+}
+
+OUTPUT :
+
+Enter a sentence: java is a object-oriented programming language
+The words in the sentence are:
+java
+is
+a
+object-oriented
+programming
+language
+
+=== Code Execution Successful ===
