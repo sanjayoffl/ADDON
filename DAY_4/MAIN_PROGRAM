@@ -1,1 +1,39 @@
-RESULT PROCESSING FROM FILE-READ MARKS FILE,CALCULATE AND WRITE RESULT FILE
+RESULT PROCESSING FROM FILE-READ MARKS FILE,CALCULATE AND WRITE RESULT FILE :
+
+CODE :
+
+import java.io.*;
+public class ResultProcessing {
+    public static void main(String[] args) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("marks.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("result.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                String name = parts[0];
+                int total = 0;
+                for (int i = 1; i < parts.length; i++) {
+                    total += Integer.parseInt(parts[i]);
+                }
+                int average = total / (parts.length - 1);
+                String result = (average >= 40) ? "Pass" : "Fail";
+                writer.write(name + " - Total: " + total + ", Average: " + average + ", Result: " + result);
+                writer.newLine();
+            }
+            reader.close();
+            writer.close();
+            System.out.println("Results written to result.txt");
+        } catch (IOException e) {
+            System.out.println("File error: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number in file.");
+        }
+    }
+}
+
+OUTPUT :
+
+John - Total: 270, Average: 90, Result: Pass
+Alice - Total: 225, Average: 75, Result: Pass
+Bob - Total: 75, Average: 25, Result: Fail
