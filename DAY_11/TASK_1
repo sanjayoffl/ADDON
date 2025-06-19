@@ -1,1 +1,41 @@
-JOIN STUDENTS AND MARKS
+JOIN STUDENTS AND MARKS :
+
+mysql> CREATE TABLE Students (
+    -> student_id INT PRIMARY KEY,
+    -> name VARCHAR(100));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> CREATE TABLE Marks (
+    -> mark_id INT PRIMARY KEY,
+    -> student_id INT,
+    -> subject VARCHAR(50),
+    ->   marks INT,
+    ->  FOREIGN KEY (student_id) REFERENCES Students(student_id));
+Query OK, 0 rows affected (0.05 sec)
+mysql> INSERT INTO stud VALUES (1, 'sanjay');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO stud VALUES (2, 'suba');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO stud VALUES (3, 'abhi');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO Marks VALUES(
+    -> (101, 1, 'Math', 88),
+    -> (102, 1, 'Science', 92),
+    -> (103, 2, 'Math', 76),
+    -> (104, 2, 'Science', 84),
+    ->  (105, 3, 'Math', 91);
+mysql> SELECT stud.student_id, stud.name, Marks.subject, Marks.marks FROM stud JOIN Marks ON stud.student_id = Marks.student_id;
++------------+---------+---------+-------+
+| student_id | name    | subject | marks |
++------------+---------+---------+-------+
+|          1 | sanjay  | Math    |    88 |
+|          1 | sanjay  | Science |    92 |
+|          2 | suba    | Math    |    76 |
+|          2 | suba    | Science |    84 |
+|          3 | abhi    | Math    |    91 |
++------------+---------+---------+-------+
+5 rows in set (0.00 sec)
+
