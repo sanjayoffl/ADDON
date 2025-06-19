@@ -1,1 +1,26 @@
-USE HASHMAP TO STORE STUDENT NAME-->MARKS AND COMPUTE AVERAGE
+USE HASHMAP TO STORE STUDENT NAME-->MARKS AND COMPUTE AVERAGE :
+
+CODE :
+
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        HashMap<String, Integer> marks = new HashMap<>();
+        marks.put("sanju",92);
+        marks.put("suba", 70);
+        marks.put("nikash", 90);
+
+        int total = 0;
+        for (int score : marks.values()) {
+            total += score;
+        }
+
+        double average = (double) total / marks.size();
+        System.out.println("Average Marks: " + average);
+    }
+}
+
+OUTPUT :
+
+Average Marks: 84.0
