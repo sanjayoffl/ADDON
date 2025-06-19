@@ -1,1 +1,27 @@
-CREATE AN ARRAYLIST OF STUDENTS AND DISPLAY USING AN ITERATOR
+CREATE AN ARRAYLIST OF STUDENTS AND DISPLAY USING AN ITERATOR :
+
+CODE :
+
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        ArrayList<String> students = new ArrayList<>();
+        students.add("Sanjay");
+        students.add("nikash");
+        students.add("prabu");
+
+        System.out.println("Students in ArrayList:");
+        Iterator<String> iterator = students.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+
+OUTPUT :
+
+Students in ArrayList:
+Sanjay
+nikash
+prabu
