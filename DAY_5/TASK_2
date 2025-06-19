@@ -1,1 +1,27 @@
-USE A HASHSET TO STORE A LIST OF UNIQUE EMAIL ADDRESSES
+USE A HASHSET TO STORE A LIST OF UNIQUE EMAIL ADDRESSES :
+
+CODE :
+
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        HashSet<String> emails = new HashSet<>();
+        emails.add("sanju@gmail.com");
+        emails.add("prabu@hotmail.com");
+        emails.add("sanju@gmail.com");  // Duplicate
+        emails.add("suba@yahoo.com");
+
+        System.out.println("Unique Emails:");
+        for (String email : emails) {
+            System.out.println(email);
+        }
+    }
+}
+
+OUTPUT :
+
+Unique Emails:
+suba@yahoo.com
+prabu@hotmail.com
+sanju@gmail.com
