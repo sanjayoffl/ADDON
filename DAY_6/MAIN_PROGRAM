@@ -3,3 +3,57 @@ TICKET BOOKING SIMULATION:
 *  Use a synchronized method/block to avoid race conditions
 *  Include sleep() to simulate delays
 *  Display booking status and remaining seats after each booking
+
+CODE :
+
+class TicketCounter {
+    int seats = 5;
+
+    public synchronized void bookTicket(String user, int want) {
+        System.out.println(user + " trying to book " + want + " seat(s)...");
+
+        if (seats >= want) {
+            try {
+                Thread.sleep(1000); // Simulate delay
+            } catch (InterruptedException e) {
+                System.out.println("Interrupted");
+            }
+            seats -= want;
+            System.out.println(user + " successfully booked " + want + " seat(s). Remaining: " + seats);
+        } else {
+            System.out.println("Sorry " + user + ", not enough seats. Remaining: " + seats);
+        }
+    }
+}
+
+class BookingThread extends Thread {
+    TicketCounter counter;
+    String user;
+    int seatsWanted;
+    BookingThread(TicketCounter counter, String user, int seatsWanted) {
+        this.counter = counter;
+        this.user = user;
+        this.seatsWanted = seatsWanted;
+    }
+    public void run() {
+        counter.bookTicket(user, seatsWanted);
+    }
+   public static void main(String[] args) {
+        TicketCounter counter = new TicketCounter();
+        BookingThread t1 = new BookingThread(counter, "Abhinav", 2);
+        BookingThread t2 = new BookingThread(counter, "Priya", 2);
+        BookingThread t3 = new BookingThread(counter, "John", 2);
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
+
+OUTPUT :
+
+Abhinav trying to book 2 seat(s)...
+Priya trying to book 2 seat(s)...
+John trying to book 2 seat(s)...
+Abhinav successfully booked 2 seat(s). Remaining: 3
+Priya successfully booked 2 seat(s). Remaining: 1
+Sorry John, not enough seats. Remaining: 1
