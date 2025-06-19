@@ -1,2 +1,110 @@
 COLLEGE COURSE REGISTRATION SYSTEM
 * Identify entites:Student,Course,Department
+
+mysql> create table student_profile(
+    -> rollno int,
+    -> studentname varchar(10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> create table student_profile(
+    -> rollno int,
+    -> studentname varchar(10),
+    -> department varchar(10));
+Query OK, 0 rows affected (0.57 sec)
+
+mysql> desc student_profile;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| rollno      | int         | YES  |     | NULL    |       |
+| studentname | varchar(10) | YES  |     | NULL    |       |
+| department  | varchar(10) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.09 sec)
+
+mysql>  insert into student_profile values(1,'sam','it');
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into student_profile values(2,'ram','bca'),(3,'john','cs');
+Query OK, 2 rows affected (0.14 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+mysql> select * from student_profile;
++--------+-------------+------------+
+| rollno | studentname | department |
++--------+-------------+------------+
+|      1 | sam         | it         |
+|      2 | ram         | bca        |
+|      3 | john        | cs         |
++--------+-------------+------------+
+3 rows in set (0.00 sec)
+mysql> insert into student_profile values (4,'joe','biotech'),(5,'dolly','ct');
+Query OK, 2 rows affected (0.09 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+mysql> select * from student_profile;
++--------+-------------+------------+
+| rollno | studentname | department |
++--------+-------------+------------+
+|      1 | sam         | it         |
+|      2 | ram         | bca        |
+|      3 | john        | cs         |
+|      4 | joe         | biotech    |
+|      5 | dolly       | ct         |
++--------+-------------+------------+
+5 rows in set (0.02 sec)
+
+mysql> update student_profile set course_fee='35000' where rollno='1';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student_profile;
++--------+-------------+------------+------------+
+| rollno | studentname | department | course_fee |
++--------+-------------+------------+------------+
+|      1 | sam         | it         |      35000 |
+|      2 | ram         | bca        |       NULL |
+|      3 | john        | cs         |       NULL |
+|      4 | joe         | biotech    |       NULL |
+|      5 | dolly       | ct         |       NULL |
++--------+-------------+------------+------------+
+5 rows in set (0.00 sec)
+mysql> update student_profile set course_fee='35000' where rollno='1';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student_profile;
++--------+-------------+------------+------------+
+| rollno | studentname | department | course_fee |
++--------+-------------+------------+------------+
+|      1 | sam         | it         |      35000 |
+|      2 | ram         | bca        |       NULL |
+|      3 | john        | cs         |       NULL |
+|      4 | joe         | biotech    |       NULL |
+|      5 | dolly       | ct         |       NULL |
++--------+-------------+------------+------------+
+5 rows in set (0.00 sec)
+mysql> update student_profile set course_fee='45000' where rollno='2';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student_profile set course_fee='50000' where rollno='3';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student_profile set course_fee='40000' where rollno='4';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student_profile set course_fee='30000' where rollno='5';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student_profile;
++--------+-------------+------------+------------+
+| rollno | studentname | department | course_fee |
++--------+-------------+------------+------------+
+|      1 | sam         | it         |      35000 |
+|      2 | ram         | bca        |      45000 |
+|      3 | john        | cs         |      50000 |
+|      4 | joe         | biotech    |      40000 |
+|      5 | dolly       | ct         |      30000 |
++--------+-------------+------------+------------+
+5 rows in set (0.00 sec)
