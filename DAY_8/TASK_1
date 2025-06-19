@@ -1,1 +1,30 @@
-DESIGN AN ER DIAGRAM FOR AN ONLINE-BOOKSTORE WITH ENTITIES LIKE BOOK,AUTHOR AND PUBLISHER
+DESIGN AN ER DIAGRAM FOR AN ONLINE-BOOKSTORE WITH ENTITIES LIKE BOOK,AUTHOR AND PUBLISHER :
+
+Author ───────< Book >──────── Publisher
+   |                |                |
+Author_ID(PK)   Book_ID(PK)     Publisher_ID(PK)
+Name           Title            Name
+Email          Price            Address
+               Author_ID(FK)
+               Publisher_ID(FK)
+
+Entities and Attributes:
+Book:
+Book_ID (PK)
+Title
+Price
+Author_ID (FK)
+Publisher_ID (FK)
+Author:
+Author_ID (PK)
+Name
+Email
+Publisher:
+Publisher_ID (PK)
+Name
+Address
+Relationships:
+Book is written by Author (Many-to-One)
+
+Book is published by Publisher (Many-to-One)
+
