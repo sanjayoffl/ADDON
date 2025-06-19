@@ -1,1 +1,107 @@
-SALES REPORT GENERATOR WITH GROUPING
+SALES REPORT GENERATOR WITH GROUPING :
+
+MariaDB [task]> CREATE TABLE sales (
+         sale_id INT PRIMARY KEY,
+         product_name VARCHAR(100),
+         category VARCHAR(50),
+         quantity INT,
+         unit_price DECIMAL(10,2),
+         sale_date DATE
+     );
+Query OK, 0 rows affected (0.019 sec)
+MariaDB [task]> SELECT
+    ->     category,
+    ->     COUNT(*) AS total_sales,
+    ->     SUM(quantity) AS total_quantity_sold,
+    ->     SUM(quantity * unit_price) AS total_revenue,
+    ->     AVG(unit_price) AS average_unit_price
+    -> FROM
+    ->     sales
+    -> GROUP BY
+    ->     category
+    -> ORDER BY
+    ->     total_revenue DESC;
+Empty set (0.002 sec)
+
+MariaDB [task]> SELECT
+    ->     category,
+    ->     COUNT(*) AS total_sales,
+    ->     SUM(quantity) AS total_quantity_sold,
+    ->     SUM(quantity * unit_price) AS total_revenue,
+    ->     AVG(unit_price) AS average_unit_price
+    -> FROM
+    ->     sales
+    -> GROUP BY
+    ->     category
+    -> ORDER BY
+    ->     total_revenue DESC;
+Empty set (0.000 sec)
+
+MariaDB [task]> select * from sales;
+Empty set (0.000 sec)
+
+MariaDB [task]> desc sales;\
++--------------+---------------+------+-----+---------+-------+
+| Field        | Type          | Null | Key | Default | Extra |
++--------------+---------------+------+-----+---------+-------+
+| sale_id      | int(11)       | NO   | PRI | NULL    |       |
+| product_name | varchar(100)  | YES  |     | NULL    |       |
+| category     | varchar(50)   | YES  |     | NULL    |       |
+| quantity     | int(11)       | YES  |     | NULL    |       |
+| unit_price   | decimal(10,2) | YES  |     | NULL    |       |
+| sale_date    | date          | YES  |     | NULL    |       |
++--------------+---------------+------+-----+---------+-------+
+6 rows in set (0.023 sec)
+
+MariaDB [task]> INSERT INTO sales (sale_id, product_name, category, quantity, unit_price, sale_date) VALUES
+    -> (1, 'Laptop', 'Electronics', 2, 60000.00, '2025-06-01'),
+    -> (2, 'Mobile Phone', 'Electronics', 5, 15000.00, '2025-06-03'),
+    -> (3, 'T-Shirt', 'Clothing', 10, 500.00, '2025-06-02'),
+    -> (4, 'Shoes', 'Footwear', 3, 2000.00, '2025-06-04'),
+    -> (5, 'Refrigerator', 'Electronics', 1, 25000.00, '2025-06-01'),
+    -> (6, 'Jeans', 'Clothing', 4, 1200.00, '2025-06-05'),
+    -> (7, 'Sandals', 'Footwear', 2, 1500.00, '2025-06-03'),
+    -> (8, 'Tablet', 'Electronics', 3, 18000.00, '2025-06-06'),
+    -> (9, 'Cap', 'Clothing', 6, 300.00, '2025-06-02'),
+    -> (10, 'Socks', 'Clothing', 10, 100.00, '2025-06-06');
+Query OK, 10 rows affected (0.033 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [task]> desc sales;
++--------------+---------------+------+-----+---------+-------+
+| Field        | Type          | Null | Key | Default | Extra |
++--------------+---------------+------+-----+---------+-------+
+| sale_id      | int(11)       | NO   | PRI | NULL    |       |
+| product_name | varchar(100)  | YES  |     | NULL    |       |
+| category     | varchar(50)   | YES  |     | NULL    |       |
+| quantity     | int(11)       | YES  |     | NULL    |       |
+| unit_price   | decimal(10,2) | YES  |     | NULL    |       |
+| sale_date    | date          | YES  |     | NULL    |       |
++--------------+---------------+------+-----+---------+-------+
+6 rows in set (0.046 sec)
+
+MariaDB [task]> select * from sales;
++---------+--------------+-------------+----------+------------+------------+
+| sale_id | product_name | category    | quantity | unit_price | sale_date  |
++---------+--------------+-------------+----------+------------+------------+
+|       1 | Laptop       | Electronics |        2 |   60000.00 | 2025-06-01 |
+|       2 | Mobile Phone | Electronics |        5 |   15000.00 | 2025-06-03 |
+|       3 | T-Shirt      | Clothing    |       10 |     500.00 | 2025-06-02 |
+|       4 | Shoes        | Footwear    |        3 |    2000.00 | 2025-06-04 |
+|       5 | Refrigerator | Electronics |        1 |   25000.00 | 2025-06-01 |
+|       6 | Jeans        | Clothing    |        4 |    1200.00 | 2025-06-05 |
+|       7 | Sandals      | Footwear    |        2 |    1500.00 | 2025-06-03 |
+|       8 | Tablet       | Electronics |        3 |   18000.00 | 2025-06-06 |
+|       9 | Cap          | Clothing    |        6 |     300.00 | 2025-06-02 |
+|      10 | Socks        | Clothing    |       10 |     100.00 | 2025-06-06 |
++---------+--------------+-------------+----------+------------+------------+
+10 rows in set (0.000 sec)
+MariaDB [task]> select category,avg(total) from sales  group by category ;
++-------------+------------+
+| category    | avg(total) |
++-------------+------------+
+| Clothing    |  3150.0000 |
+| Electronics | 68500.0000 |
+| Footwear    |  4500.0000 |
++-------------+------------+
+3 rows in set (0.000 sec)
