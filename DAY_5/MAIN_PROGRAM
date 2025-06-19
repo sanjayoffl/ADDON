@@ -3,3 +3,134 @@ STUDENT COURSE ENROLLMENT SYSTEM:
 *  Use an HashMap to assign multiple course per student
 *  Include functionality to add,remove and display and their enrolled courses
 *  Use iterators to loop through data
+
+CODE :
+
+import java.util.*;
+public class 1entCourseManager {
+    static ArrayList<String> students = new ArrayList<>();
+    static HashMap<String, ArrayList<String>> courseMap = new HashMap<>();
+    static Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        int choice;
+        do {
+            System.out.println("\n1. Add Student");
+            System.out.println("2. Add Course to Student");
+            System.out.println("3. Remove Student");
+            System.out.println("4. Display Students and Courses");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+            sc.nextLine();  // consume newline
+
+            switch (choice) {
+                case 1:
+                    addStudent();
+                    break;
+                case 2:
+                    addCourse();
+                    break;
+                case 3:
+                    removeStudent();
+                    break;
+                case 4:
+                    displayAll();
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+            }
+        } while (choice != 5);
+    }
+   static void addStudent() {
+        System.out.print("Enter student name: ");
+        String name = sc.nextLine();
+        if (!students.contains(name)) {
+            students.add(name);
+            courseMap.put(name, new ArrayList<>());
+            System.out.println("Student added.");
+        } else {
+            System.out.println("Student already exists.");
+        }
+    }
+    static void addCourse() {
+        System.out.print("Enter student name: ");
+        String name = sc.nextLine();
+        if (students.contains(name)) {
+            System.out.print("Enter course to add: ");
+            String course = sc.nextLine();
+            courseMap.get(name).add(course);
+            System.out.println("Course added.");
+        } else {
+            System.out.println("Student not found.");
+        }
+    }
+    static void removeStudent() {
+        System.out.print("Enter student name to remove: ");
+        String name = sc.nextLine();
+        if (students.remove(name)) {
+            courseMap.remove(name);
+            System.out.println("Student removed.");
+        } else {
+            System.out.println("Student not found.");
+        }
+    }
+    static void displayAll() {
+        System.out.println("\n--- Student Course List ---");
+        Iterator<String> iterator = students.iterator();
+        while (iterator.hasNext()) {
+            String name = iterator.next();
+            ArrayList<String> courses = courseMap.get(name);
+            System.out.println(name + " -> " + courses);
+        }
+    }
+}
+
+OUTPUT :
+
+1. Add Student
+2. Add Course to Student
+3. Remove Student
+4. Display Students and Courses
+5. Exit
+Enter choice: 1
+Enter student name: sanjay
+Student added.
+
+1. Add Student
+2. Add Course to Student
+3. Remove Student
+4. Display Students and Courses
+5. Exit
+Enter choice: 2
+Enter student name: sanjay
+Enter course to add: bsc it
+Course added.
+
+1. Add Student
+2. Add Course to Student
+3. Remove Student
+4. Display Students and Courses
+5. Exit
+Enter choice: 4
+
+--- Student Course List ---
+sanjay -> [bsc it]
+
+1. Add Student
+2. Add Course to Student
+3. Remove Student
+4. Display Students and Courses
+5. Exit
+Enter choice: 3
+Enter student name to remove: sanjay
+Student removed.
+
+1. Add Student
+2. Add Course to Student
+3. Remove Student
+4. Display Students and Courses
+5. Exit
+Enter choice: 5
+Exiting...
+
+=== Code Execution Successful ===
