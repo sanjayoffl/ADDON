@@ -1,1 +1,16 @@
-SUB-QUERY TO FIND TOP PERFORMER
+SUB-QUERY TO FIND TOP PERFORMER :
+
+mysql> SELECT name
+    -> FROM stud WHERE student_id = (
+    ->     SELECT student_id
+    ->     FROM Marks
+    ->     GROUP BY student_id
+    ->     ORDER BY SUM(marks) DESC
+    ->     LIMIT 1
+    -> );
++---------+
+| name    |
++---------+
+| sanjay  |
++---------+
+1 row in set (0.06 sec)
