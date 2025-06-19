@@ -1,1 +1,24 @@
-IMPLEMENTS RUNNABLE TO PRINT A MESSAGE FROM MULTIPLE THREADS
+IMPLEMENTS RUNNABLE TO PRINT A MESSAGE FROM MULTIPLE THREADS :
+
+CODE :
+class MessagePrinter implements Runnable {
+    public void run() {
+        System.out.println("Message from thread: " + Thread.currentThread().getName());
+    }
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new MessagePrinter(), "Thread-1");
+        Thread t2 = new Thread(new MessagePrinter(), "Thread-2");
+        Thread t3 = new Thread(new MessagePrinter(), "Thread-3");
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
+
+OUTPUT :
+
+Message from thread: Thread-1
+Message from thread: Thread-3
+Message from thread: Thread-2
