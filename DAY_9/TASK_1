@@ -1,1 +1,28 @@
-FETCH STUDENTS WITH > 80 MARKS
+FETCH STUDENTS WITH > 80 MARKS :
+
+mysql> CREATE TABLE studentmarks (
+    -> student_id INT PRIMARY KEY,
+    ->  name VARCHAR(50),
+    -> marks INT
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+mysql> insert into studentmarks values(1,'saran',60);
+Query OK, 1 row affected (0.04 sec)
+mysql> insert into studentmarks values(2,'arnov',70);
+Query OK, 1 row affected (0.01 sec)
+mysql> insert into studentmarks values(3,'parkash',80);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into studentmarks values(4,'sham',60);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into studentmarks values(5,'priya',85);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM StudentMarks WHERE marks > 80;
++------------+-------+-------+
+| student_id | name  | marks |
++------------+-------+-------+
+|          5 | priya |    85 |
++------------+-------+-------+
+1 row in set (0.04 sec)
