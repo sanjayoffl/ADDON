@@ -1,1 +1,14 @@
-LIST COURSES BY ASCENDING FEES
+LIST COURSES BY ASCENDING FEES :
+
+CREATE TABLE Course (
+    course_id VARCHAR(10) PRIMARY KEY,
+    course_name VARCHAR(50),
+    fee INT
+);
+SELECT * FROM Course ORDER BY fee ASC;
+course_id | course_name | fee
+----------|-------------|-----
+C103      | SQL         | 3000
+C101      | Java        | 5000
+C102      | Python      | 6000
+
