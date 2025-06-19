@@ -1,1 +1,61 @@
-CUSTOMER RECORDS FILTERING SYSTEM
+CUSTOMER RECORDS FILTERING SYSTEM :
+
+CREATE DATABASE IF NOT EXISTS CustomerDB;
+USE CustomerDB;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100),
+    Age INT,
+    City VARCHAR(100),
+    Email VARCHAR(100),
+    TotalPurchase DECIMAL(10,2)
+);
+INSERT INTO Customers (Name, Age, City, Email, TotalPurchase) VALUES
+('Arun Kumar', 25, 'Chennai', 'arun@example.com', 1500.00),
+('Divya Suresh', 34, 'Coimbatore', 'divya@example.com', 3000.00),
+('Mohan Raj', 29, 'Madurai', 'mohan@example.com', 800.00),
+('Priya Das', 40, 'Coimbatore', 'priya@example.com', 4200.00),
+('Ravi Shankar', 22, 'Salem', 'ravi@example.com', 1200.00),
+('Sundar Pichai', 37, 'Chennai', 'sundar@example.com', 10000.00);
+select * from Customers;
+| CustomerID | Name          | Age | City       | Email                                           | TotalPurchase |
+| ---------- | ------------- | --- | ---------- | ----------------------------------------------- | ------------- |
+| 1          | Arun Kumar    | 25  | Chennai    | [arun@example.com](mailto:arun@example.com)     | 1500.00       |
+| 2          | Divya Suresh  | 34  | Coimbatore | [divya@example.com](mailto:divya@example.com)   | 3000.00       |
+| 3          | Mohan Raj     | 29  | Madurai    | [mohan@example.com](mailto:mohan@example.com)   | 800.00        |
+| 4          | Priya Das     | 40  | Coimbatore | [priya@example.com](mailto:priya@example.com)   | 4200.00       |
+| 5          | Ravi Shankar  | 22  | Salem      | [ravi@example.com](mailto:ravi@example.com)     | 1200.00       |
+| 6          | Sundar Pichai | 37  | Chennai    | [sundar@example.com](mailto:sundar@example.com) | 10000.00      |
+
+SELECT * FROM Customers where City = 'Coimbatore';
+| CustomerID | Name         | Age | City       | Email                                         | TotalPurchase |
+| ---------- | ------------ | --- | ---------- | --------------------------------------------- | ------------- |
+| 2          | Divya Suresh | 34  | Coimbatore | [divya@example.com](mailto:divya@example.com) | 3000.00       |
+| 4          | Priya Das    | 40  | Coimbatore | [priya@example.com](mailto:priya@example.com) | 4200.00       |
+
+SELECT * FROM Customers WHERE Age > 30;
+| CustomerID | Name          | Age | City       | Email                                           | TotalPurchase |
+| ---------- | ------------- | --- | ---------- | ----------------------------------------------- | ------------- |
+| 2          | Divya Suresh  | 34  | Coimbatore | [divya@example.com](mailto:divya@example.com)   | 3000.00       |
+| 4          | Priya Das     | 40  | Coimbatore | [priya@example.com](mailto:priya@example.com)   | 4200.00       |
+| 6          | Sundar Pichai | 37  | Chennai    | [sundar@example.com](mailto:sundar@example.com) | 10000.00      |
+
+SELECT * FROM Customers
+WHERE TotalPurchase > 2000;
+| CustomerID | Name          | Age | City       | Email                                           | TotalPurchase |
+| ---------- | ------------- | --- | ---------- | ----------------------------------------------- | ------------- |
+| 2          | Divya Suresh  | 34  | Coimbatore | [divya@example.com](mailto:divya@example.com)   | 3000.00       |
+| 4          | Priya Das     | 40  | Coimbatore | [priya@example.com](mailto:priya@example.com)   | 4200.00       |
+| 6          | Sundar Pichai | 37  | Chennai    | [sundar@example.com](mailto:sundar@example.com) | 10000.00      |
+
+SELECT * FROM Customers
+ORDER BY TotalPurchase DESC; //high to low
+| CustomerID | Name          | TotalPurchase |
+| ---------- | ------------- | ------------- |
+| 6          | Sundar Pichai | 10000.00      |
+| 4          | Priya Das     | 4200.00       |
+| 2          | Divya Suresh  | 3000.00       |
+| 1          | Arun Kumar    | 1500.00       |
+| 5          | Ravi Shankar  | 1200.00       |
+| 3          | Mohan Raj     | 800.00        |
+
