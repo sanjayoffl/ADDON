@@ -1,1 +1,12 @@
-SEARCH BOOKS BY KEYWORD USING LIKE
+SEARCH BOOKS BY KEYWORD USING LIKE :
+
+CREATE TABLE Book (
+    book_id INT PRIMARY KEY,
+    title VARCHAR(100),
+    author VARCHAR(50)
+);
+SELECT * FROM Book WHERE title LIKE '%Java%';
+book_id | title            | author
+--------|------------------|--------
+1       | Java Basics      | James
+4       | Advanced Java    | Mike
