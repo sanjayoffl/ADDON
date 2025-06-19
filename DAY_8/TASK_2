@@ -1,1 +1,12 @@
-IDENTIFY FUNCTIONAL DEPENDENCIES AND NORMALIZE TO 3NF
+IDENTIFY FUNCTIONAL DEPENDENCIES AND NORMALIZE TO 3NF :
+
+Functional Dependencies:
+Book_ID → Title, Price, Author_ID, Publisher_ID
+Author_ID → Name, Email
+Publisher_ID → Name, Address
+Normalization to 3NF:
+All tables already:
+*Have atomic attributes
+*No partial dependency (as all are in 1NF & 2NF)
+*All non-key attributes depend only on primary key
+* Thus, schema is in 3NF
