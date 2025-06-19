@@ -1,1 +1,66 @@
-STUDENT MANAGEMENT SYSTEM (CREATE STUDENT,ASSIGN MARKS,DISPLAY RESULTS)
+STUDENT MANAGEMENT SYSTEM (CREATE STUDENT,ASSIGN MARKS,DISPLAY RESULTS) :
+
+CODE :
+
+import java.util.Scanner;
+
+class Student {
+    String name;
+    int rollNo;
+    int mark1, mark2, mark3;
+       void createStudent(String n, int r) {
+        name = n;
+        rollNo = r;
+}
+    void assignMarks(int m1, int m2, int m3) {
+        mark1 = m1;
+        mark2 = m2;
+        mark3 = m3;
+    }
+    void displayResult() {
+        int total = mark1 + mark2 + mark3;
+        double average = total / 3.0;
+        System.out.println("\n--- Student Result ---");
+        System.out.println("Name     : " + name);
+        System.out.println("Roll No  : " + rollNo);
+        System.out.println("Marks    : " + mark1 + ", " + mark2 + ", " + mark3);
+        System.out.println("Total    : " + total);
+        System.out.println("Average  : " + average);
+    }
+}
+class Main{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Student s1 = new Student();
+       System.out.print("Enter student name: ");
+        String name = input.nextLine();
+        System.out.print("Enter roll number: ");
+        int roll = input.nextInt();
+        s1.createStudent(name, roll);
+        System.out.print("Enter mark 1: ");
+        int m1 = input.nextInt();
+        System.out.print("Enter mark 2: ");
+        int m2 = input.nextInt();
+        System.out.print("Enter mark 3: ");
+        int m3 = input.nextInt();
+        s1.assignMarks(m1, m2, m3);
+        s1.displayResult();
+        input.close();
+    }
+}
+
+OUTPUT :
+
+Enter student name: sanjay
+Enter roll number: 38
+Enter mark 1: 60
+Enter mark 2: 70
+Enter mark 3: 80
+
+--- Student Result ---
+Name     : sanjay
+Roll No  : 38
+Marks    : 60, 70, 80
+Total    : 210
+Average  : 70.0
+
